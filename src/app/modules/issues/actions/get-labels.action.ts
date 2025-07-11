@@ -1,4 +1,3 @@
-import { sleep } from '@helpers/sleep';
 import { environment } from 'src/environments/environment.development';
 import { GitHubLabel } from '../interfaces';
 
@@ -6,7 +5,7 @@ const BASE_URL = environment.baseUrl;
 const GITHUB_TOKEN = environment.gitHubToken;
 
 export const getLabels = async (): Promise<GitHubLabel[]> => {
-  await sleep(1500);
+  //await sleep(1500);
 
   try {
     const resp = await fetch(`${BASE_URL}/labels`, {
@@ -18,7 +17,7 @@ export const getLabels = async (): Promise<GitHubLabel[]> => {
     if (!resp.ok) throw "Can't load labels";
 
     const labels: GitHubLabel[] = await resp.json();
-    console.log({ labels });
+    //console.log({ labels });
 
     return labels;
   } catch (error) {
